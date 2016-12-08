@@ -21,7 +21,6 @@ public class GeneralArea {
         return generalArea;
     }
 
-
     public static void main(String[] args) {
         List<Shape> shapes = new ArrayList<>();
         Shape square = new Square(BigDecimal.valueOf(2));
