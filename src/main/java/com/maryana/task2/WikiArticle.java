@@ -1,6 +1,5 @@
 package com.maryana.task2;
 
-import java.io.*;
 import java.net.URL;
 
 /**

@@ -48,10 +48,6 @@ public class KeywordSearchRunner {
         }
         return count;
     }
-
-    public static Predicate<Document> containsWord(String word) {
-        return p -> p.containsWord(word);
-    }
 }
 
 

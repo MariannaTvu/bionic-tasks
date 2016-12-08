@@ -1,8 +1,5 @@
 package com.maryana.task2;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,11 +32,5 @@ public class BookDescription extends AbstractDocument implements Document {
     public BookDescription setAnnotation(String annotation) {
         this.annotation = annotation;
         return this;
-    }
-
-
-    @Override
-    public boolean containsWord(String word) {
-        return text.contains(word) || title.contains(word);
     }
 }
