@@ -9,32 +9,18 @@ import java.net.URL;
 /**
  * Created by Maryana on 08.12.2016.
  */
-public class Article implements Document {
-    private String title;
+public class Article extends AbstractDocument implements Document {
+
     private String journal;
     private String name;
     private int year;
     private String N;
-    private String text;
+
+    public Article() {
+    }
 
     public Article(URL link) {
-        this.title = link.getFile();
-
-        StringBuilder sb = new StringBuilder();
-        BufferedReader in = null;
-        try {
-            in = new BufferedReader(
-                    new InputStreamReader(link.openStream()));
-
-            String inputLine;
-            while ((inputLine = in.readLine()) != null)
-                sb.append(inputLine);
-            in.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        text = sb.toString();
+        super(link);
     }
 
     public Article setN(String n) {
@@ -57,8 +43,5 @@ public class Article implements Document {
         return this;
     }
 
-    @Override
-    public boolean containsWord(String word) {
-        return text.contains(word) || title.contains(word);
-    }
+
 }

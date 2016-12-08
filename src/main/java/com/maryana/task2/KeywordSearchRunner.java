@@ -26,9 +26,14 @@ public class KeywordSearchRunner {
         URL bookUrl = new URL("http://www.textfiles.com/etext/AUTHORS/DOYLE/doyle-his-382.txt");
         BookDescription bookDescription = new BookDescription(bookUrl);
 
+        BookDescription doyleBookDescription = new BookDescription();
+        doyleBookDescription.setTitle("The Return of Sherlock Holmes");
+        doyleBookDescription.setText("“Well, Watson, it’s as well we have not to turn out to-night,” said Holmes, laying aside his lens and rolling up the palimpsest. “I’ve done enough for one sitting. It is trying work for the eyes. So far as I can make out, it is nothing more exciting than an Abbey’s accounts dating from the second half of the fifteenth century. Halloa! halloa! halloa! What’s this?”");
+
         documents.add(article);
         documents.add(wikiArticle);
         documents.add(bookDescription);
+        documents.add(doyleBookDescription);
 
         System.out.println("The word 'Watson' occurs " + countPresenceOfTheWord("Watson", documents) + " time(s)");
         System.out.println("The word 'schistosomula' occurs " + countPresenceOfTheWord("schistosomula", documents) + " time(s)");

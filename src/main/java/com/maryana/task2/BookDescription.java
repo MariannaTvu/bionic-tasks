@@ -10,31 +10,16 @@ import java.util.List;
 /**
  * Created by Maryana on 08.12.2016.
  */
-public class BookDescription implements Document {
+public class BookDescription extends AbstractDocument implements Document {
     private List<String> authors = new ArrayList<>();
-    private String title;
     private String publisher;
     private String annotation;
-    private String text;
+
+    public BookDescription() {
+    }
 
     public BookDescription(URL link) {
-        this.title = link.getFile();
-
-        StringBuilder sb = new StringBuilder();
-        BufferedReader in = null;
-        try {
-            in = new BufferedReader(
-                    new InputStreamReader(link.openStream()));
-
-            String inputLine;
-            while ((inputLine = in.readLine()) != null)
-                sb.append(inputLine);
-            in.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        text = sb.toString();
+        super(link);
     }
 
     public BookDescription setAuthors(List<String> authors) {
