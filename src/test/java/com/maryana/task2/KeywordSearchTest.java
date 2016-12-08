@@ -18,6 +18,21 @@ public class KeywordSearchTest {
     public void testSearch() throws Exception {
         List<Document> documents = new ArrayList<>();
 
+        addTwoHolmesDocuments(documents);
+
+        assertThat(countPresenceOfTheWord("Holmes", documents), is(2));
+    }
+
+    @Test
+    public void emptySearchTest() throws Exception {
+        List<Document> documents = new ArrayList<>();
+
+        addTwoHolmesDocuments(documents);
+
+        assertThat(countPresenceOfTheWord("echtgenoot", documents), is(0));
+    }
+
+    private void addTwoHolmesDocuments(List<Document> documents) {
         WikiArticle article = new WikiArticle();
         article.setTitle("Arthur Conan Doyle");
         article.setText("Doyle struggled to find a publisher for his work. His first work featuring Sherlock Holmes and Dr. Watson, A Study in Scarlet, was taken by Ward Lock & Co on 20 November 1886, giving Doyle £25 (£2500 today) for all rights to the story. The piece appeared one year later in the Beeton's Christmas Annual and received good reviews in The Scotsman and the Glasgow Herald.[9]");
@@ -27,7 +42,5 @@ public class KeywordSearchTest {
 
         documents.add(article);
         documents.add(doyleBookDescription);
-
-        assertThat(countPresenceOfTheWord("Holmes", documents), is(2));
     }
 }
