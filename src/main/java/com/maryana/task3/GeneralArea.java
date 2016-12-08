@@ -13,9 +13,7 @@ import java.util.List;
  */
 
 public class GeneralArea {
-    private static List<Shape> shapes = new ArrayList<>();
-
-    public static BigDecimal getGeneralArea(){
+    public static BigDecimal getGeneralArea(List<Shape> shapes){
         BigDecimal generalArea = BigDecimal.valueOf(0);
         for (Shape shape : shapes){
             generalArea = generalArea.add(shape.getArea());
@@ -25,6 +23,7 @@ public class GeneralArea {
 
 
     public static void main(String[] args) {
+        List<Shape> shapes = new ArrayList<>();
         Shape square = new Square(BigDecimal.valueOf(2));
         Shape rectangle = new Rectangle(BigDecimal.valueOf(2), BigDecimal.valueOf(4));
         Shape circle = new Circle(BigDecimal.valueOf(10));
@@ -33,6 +32,6 @@ public class GeneralArea {
         shapes.add(circle);
         shapes.add(rectangle);
 
-        System.out.println("General area is: " + getGeneralArea());
+        System.out.println("General area is: " + getGeneralArea(shapes));
     }
 }
