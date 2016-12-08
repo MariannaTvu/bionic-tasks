@@ -15,12 +15,12 @@ import static com.maryana.task2.KeywordSearchRunner.countPresenceOfTheWord;
  */
 public class KeywordSearchTest {
     @Test
-    public void testSearch() throws Exception {
+    public void searchTest() throws Exception {
         List<Document> documents = new ArrayList<>();
 
         addTwoHolmesDocuments(documents);
 
-        assertThat(countPresenceOfTheWord("Holmes", documents), is(2));
+        assertThat(countPresenceOfTheWord("Doyle", documents), is(1));
     }
 
     @Test
