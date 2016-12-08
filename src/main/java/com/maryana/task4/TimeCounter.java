@@ -12,22 +12,21 @@ public class TimeCounter {
     public static void main(String[] args) {
         LocalDate birthDate = LocalDate.of(1963, 5, 19);
 
-        getAgeInMonth(birthDate);
-        getAgeInDays(birthDate);
-        dayOfTheWeek(birthDate);
+        System.out.println("Your are " + getAgeInMonth(birthDate) + " month old");
+        System.out.println("Your are " + getAgeInDays(birthDate) + " days old");
+        System.out.println("You were born on " + dayOfTheWeek(birthDate));
     }
 
-    private static void getAgeInMonth(LocalDate birthDate) {
+    private static long getAgeInMonth(LocalDate birthDate) {
         Period age = Period.between(birthDate, LocalDate.now());
-        System.out.println("Your are " + age.toTotalMonths() + " month old");
+        return age.toTotalMonths();
     }
 
-    private static void getAgeInDays(LocalDate birthDate) {
-        long days = ChronoUnit.DAYS.between(birthDate, LocalDate.now());
-        System.out.println("Your are " + days + " days old");
+    private static long getAgeInDays(LocalDate birthDate) {
+        return ChronoUnit.DAYS.between(birthDate, LocalDate.now());
     }
 
-    private static void dayOfTheWeek(LocalDate birthDate) {
-        System.out.println("You were born on " + birthDate.getDayOfWeek().toString().toLowerCase());
+    private static String dayOfTheWeek(LocalDate birthDate) {
+       return birthDate.getDayOfWeek().toString().toLowerCase();
     }
 }
