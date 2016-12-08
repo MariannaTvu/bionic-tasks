@@ -7,7 +7,7 @@ import java.net.URL;
  * Created by Maryana on 08.12.2016.
  */
 public class WikiArticle extends AbstractDocument implements Document {
-    URL link;
+    private URL link;
 
     public WikiArticle() {
     }
