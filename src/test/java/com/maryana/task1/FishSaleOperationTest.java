@@ -22,13 +22,13 @@ public class FishSaleOperationTest {
         IncomeStatement incomeStatement = new IncomeStatement();
         incomeStatement.add(createOperationOne());
         incomeStatement.add(createOperationOne());
-        incomeStatement.add(getOperationTwo());
+        incomeStatement.add(createOperationTwo());
 
         assertThat(incomeStatement.getIncome("Salmon"), is(BigDecimal.valueOf(10000)));
         assertThat(incomeStatement.getIncome("Parrot fish"), is(BigDecimal.valueOf(5000)));
     }
 
-    private FishSaleOperation getOperationTwo() {
+    private FishSaleOperation createOperationTwo() {
         FishSaleOperation testOperationThree = new FishSaleOperation("Parrot fish");
         testOperationThree.setPurchasePricePerKg(BigDecimal.valueOf(100));
         testOperationThree.setSalePricePerKg(BigDecimal.valueOf(150));

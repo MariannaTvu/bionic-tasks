@@ -1,19 +1,20 @@
 package com.maryana.task1;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Maryana on 07.12.2016.
  */
-public class FishSaleOperation implements Comparator<FishSaleOperation> {
+public class FishSaleOperation{
     private String fishName;
     private BigDecimal purchasePricePerKg;
     private BigDecimal salePricePerKg;
     private int weightOfSoldFish;
-    private long purchaseDate;
-    private long saleDate;
+    private LocalDate purchaseDate;
+    private LocalDate saleDate;
     private BigDecimal constOverheads = BigDecimal.valueOf(20);
 
 
@@ -22,7 +23,7 @@ public class FishSaleOperation implements Comparator<FishSaleOperation> {
     }
 
     public BigDecimal calculateIncome() {
-        long daysCount = TimeUnit.MILLISECONDS.toDays(saleDate - purchaseDate);
+        long daysCount = DateUtils.countDays(purchaseDate, saleDate);
         BigDecimal priceOfStorage = constOverheads.multiply(BigDecimal.valueOf(daysCount));
         BigDecimal incomePerKg = salePricePerKg.subtract(purchasePricePerKg).subtract(priceOfStorage);
 
@@ -48,19 +49,14 @@ public class FishSaleOperation implements Comparator<FishSaleOperation> {
         return this;
     }
 
-    public FishSaleOperation setPurchaseDate(long purchaseDate) {
+    public FishSaleOperation setPurchaseDate(LocalDate purchaseDate) {
         this.purchaseDate = purchaseDate;
         return this;
     }
 
-    public FishSaleOperation setSaleDate(long saleDate) {
+    public FishSaleOperation setSaleDate(LocalDate saleDate) {
         this.saleDate = saleDate;
         return this;
-    }
-
-    @Override
-    public int compare(FishSaleOperation f1, FishSaleOperation f2) {
-        return f1.fishName.compareTo(f2.fishName);
     }
 }
 

@@ -22,14 +22,15 @@ public class FishSaleRunner {
 
         FishSaleOperation secondSalmonOperation = new FishSaleOperation("Salmon");
         secondSalmonOperation.setPurchasePricePerKg(BigDecimal.valueOf(200));
-        secondSalmonOperation.setSalePricePerKg(BigDecimal.valueOf(230));
-        secondSalmonOperation.setPurchaseDate(DateUtils.getTimestamp(2015, 4, 29));
-        secondSalmonOperation.setSaleDate(DateUtils.getTimestamp(2015, 5, 3));
+        secondSalmonOperation.setSalePricePerKg(BigDecimal.valueOf(270));
+        secondSalmonOperation.setPurchaseDate(DateUtils.getTimestamp(2015, 3, 29));
+        secondSalmonOperation.setSaleDate(DateUtils.getTimestamp(2015, 4, 1));
         secondSalmonOperation.setWeightOfSoldFish(600);
 
-        List<FishSaleOperation> operationList = new ArrayList<>();
-        operationList.add(firstSalmonOperation);
-        operationList.add(secondSalmonOperation);
+        IncomeStatement incomeStatement = new IncomeStatement();
+        incomeStatement.add(firstSalmonOperation);
+        incomeStatement.add(secondSalmonOperation);
 
+        System.out.println(incomeStatement.getIncome("Salmon"));
     }
 }

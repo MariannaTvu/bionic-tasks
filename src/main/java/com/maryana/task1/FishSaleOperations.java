@@ -15,10 +15,6 @@ public class FishSaleOperations {
         operationList.add(fishSaleOperation);
     }
 
-    public List<FishSaleOperation> toList() {
-        return operationList;
-    }
-
     public BigDecimal getIncome() {
         BigDecimal sum = BigDecimal.valueOf(0);
         for (FishSaleOperation operation : operationList) {
